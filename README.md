@@ -111,7 +111,7 @@ Table 1: A comparison of the *setup* time between TreePIR and PBC for various tr
 | $h$ | 26 | 28 | 30 | 32 | 34 | 36 |
 | **TreePIR** (ms) | 0.47 | 0.48 | 0.51 | 0.52 | 0.61 | 0.69 |
 
-Table 2: A comparison of the *indexing* times of TreePIR and PBC. Despite ignoring the download time of its (large) index, PBC's indexing is still *19*-$160\times$ slower than TreePIR's indexing.
+Table 2: A comparison of the *indexing* times of TreePIR and PBC. Despite ignoring the download time of its (large) index, PBC's indexing is still 19 - $160\times$ slower than TreePIR's indexing.
 
 
 <p align="center">
