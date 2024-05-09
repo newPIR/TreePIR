@@ -115,10 +115,6 @@ The implementation results show that our schemes with extra protection for the C
 ((3, 2), (4, 3), (5, 3), (6, 4)). When d increases, the LM-PIR computation time on the server side tends to decrease because the number of answers and witnesses decreases regarded to O(n^(1/d)). However, when d increases, the size of queries also grows. It is why the computation cost of higher d is slightly higher in some cases, but in general, the computation time on the server side reduces when d rises. On the Client side, the computation cost trend is similar to the computation time on the server. However, d increases lead to an increase in k, so the total computation time on the Client side grows.
 
 ---
-## ACKNOWLEDGMENTS 
-This work was supported by the Australian Research Council through the Discovery Project under Grant DP200100731.
-
----
 ## REFERENCES
 
 [LM] R. W. Lai and G. Malavolta, “Subvector commitments with application to succinct arguments,” in Advances in Cryptology–CRYPTO 2019: 39th Annual International Cryptology Conference, Santa Barbara, CA, USA, August 18–22, 2019, Proceedings, Part I 39. Springer, 2019, pp. 530–560.
