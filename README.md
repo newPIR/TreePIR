@@ -99,21 +99,20 @@ TreePIR has significantly faster setup and indexing thanks to its efficient colo
 |-----|----|----|----|----|----|----|----|----|
 | PBC (ms) | 3.4 | 8.9 | 53.1 | 406 | 2132 | 9259 | 37591 | 159814 |
 | **TreePIR** (ms) | 0.4 | 2.4 | 7.6 | 39.1 | 56.1 | 179 | 600 | 2700 |
-
 | $h$ | 26 |    |    | 28 |    | 29 |    | 30 |
 | **TreePIR** (sec) | 9.6 |    |    | 37.3 |    | 77.1 |    | 179.4 |
 
 Table 1: A comparison of the *setup* time between TreePIR and PBC for various tree heights. TreePIR's setup is 8 - $60\times$ faster.
 
-<p align="center">
-  <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779728-d474a1e3-6d0a-4ad2-83d4-5ab550d265fa.png"> <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779764-8e25f985-b584-4f24-9cab-def75f1c7efa.png">
-</p>
-<strong> Fig. 2.</strong> The comparison of the average server and client computation times between LM-CKGS and LM-BE schemes where n = 2^10, m = 2^12, t = (k − 1) for both schemes, t = 1 for LM-BE scheme, and k increases from 3 to 6. Assume (k − 1) colluding servers in the system, the LM-BE scheme performs quite better on the server side. In contrast, the LM-CKGS computational cost is slightly lower on the Client side. For the LM-BE scheme, there is a tradeoff when t changes and higher t means higher computation costs.
+| $h$ | 10 | 12 | 14 | 16 | 18 | 20 | 22 | 24 |
+|-----|----|----|----|----|----|----|----|----|
+| Indexing PBC (ms) | 4 | 4 | 4 | 4 | 5 | 11 | 22 | 74 |
+| **TreePIR** (ms) | 0.21 | 0.24 | 0.25 | 0.32 | 0.34 | 0.38 | 0.41 | 0.46 |
+| $h$ | 26 | 28 | 30 | 32 | 34 | 36 |
+| **TreePIR** (ms) | 0.47 | 0.48 | 0.51 | 0.52 | 0.61 | 0.69 |
 
-<p align="center">
-  <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779833-3170bd8e-fe30-4c38-9a2c-93dcd0349aad.png"> <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779844-739ba227-cd21-4eb8-8732-4354c653d709.png">
-</p>
-<strong> Fig. 3.</strong> The comparison of the average server and client computation times regraded to three different LM-PIR cases (LM-CKGS, LM-WY, and LM-BE) where k = 2, t = 1, m = 2^10, and n increases from 2^8 to 2^12. When n increases, the total LM-PIR computation time increases, especially the LM computation time increases significantly. It means that the percentage of LMC-related computation time increases significantly when the horizontal database increases.
+Table 2: A comparison of the *indexing* times of TreePIR and PBC. Despite ignoring the download time of its (large) index, PBC's indexing is still *19*-$160\times$ slower than TreePIR's indexing.
+
 
 <p align="center">
   <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779906-eb2ffdf5-a405-4989-9ee5-f0d9c51530b7.png"> <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779912-8aeb452f-e90f-4947-978c-4230d8fddf64.png">
