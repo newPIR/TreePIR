@@ -165,10 +165,8 @@ Figure 1: TreePIR's communication cost is about $1.5\times$ lower than PBC's as 
 ---
 ## REFERENCES
 
-[[PBC](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8418648&casa_token=TDXMe3TP8FEAAAAA:pCRuD39ghBC0f6rGHpdxAv0MxCkcVdiOb7C2Q18ZbPXd0CMb0rsohDfzJuVAqJSXH5bgpOkh)] Angel, S., Chen, H., Laine, K., & Setty, S. (2018, May). PIR with compressed queries and amortized query processing. In 2018 IEEE symposium on security and privacy (SP) (pp. 962-979). IEEE.
+[[PBC](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8418648&casa_token=TDXMe3TP8FEAAAAA:pCRuD39ghBC0f6rGHpdxAv0MxCkcVdiOb7C2Q18ZbPXd0CMb0rsohDfzJuVAqJSXH5bgpOkh)] Angel, S., Chen, H., Laine, K., & Setty, S. (2018, May). PIR with compressed queries and amortized query processing. In 2018 IEEE symposium on security and privacy (SP) (pp. 962-979). IEEE. [GitHub](https://github.com/microsoft/SealPIR).
 
-[CKGS] B. Chor, E. Kushilevitz, O. Goldreich, and M. Sudan, “Private information retrieval,” Journal of the ACM (JACM), vol. 45, no. 6, pp. 965–981, 1998.
+[[Spiral](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=9833700&casa_token=LrkCHbNfgKgAAAAA:P0yS_sow5HEeugP2oJZujMZWIyjv0FNAliYdxsV7AegNN5YCVruFnj_z05uj2tBLLvGXHbhd)] Menon, S. J., & Wu, D. J. (2022, May). Spiral: Fast, high-rate single-server PIR via FHE composition. In 2022 IEEE Symposium on Security and Privacy (SP) (pp. 930-947). IEEE. [GitHub](https://github.com/menonsamir/spiral).
 
-[WY] D. Woodruff and S. Yekhanin, “A geometric approach to information-theoretic private information retrieval,” in 20th Annual IEEE Conference on Computational Complexity (CCC’05). IEEE, 2005, pp. 275–284.
-
-[BE] R. Bitar and S. El Rouayheb, “Staircase-pir: Universally robust private information retrieval,” in 2018 IEEE Information Theory Workshop (ITW). IEEE, 2018, pp. 1–5.
+[[VBPIR](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10179329&casa_token=hRmfpPtDH7kAAAAA:m-dixadRNr4sQZ9Hlv5U6uQHPJIB_EoCZp3-osGQeP5T-J7bT8lpUksbHVE9wqe1QLQ_OCZY&tag=1)] Mughees, M. H., & Ren, L. (2023, May). Vectorized batch private information retrieval. In 2023 IEEE Symposium on Security and Privacy (SP) (pp. 437-452). IEEE. [GitHub](https://github.com/mhmughees/vectorized_batchpir).
