@@ -153,7 +153,7 @@ Table 5: Theoretically, TreePIR's max server computation time is $\sqrt[d]{2} \t
 | VBPIR+PBC (ms) | 399 | 405 | 586 | 969 | 2357 | 7481 |
 | **VBPIR+TreePIR** (ms) | 396 | 397 | 415 | 588 | 1372 | 3871 |
 
-Table 6: TreePIR's total server computation time is $1.5$-$2\times$ faster than PBC for larger trees. Theoretically, it is $1.5 \sqrt[d]{2} \times$ faster.
+Table 6: TreePIR's total server computation time is $1.5$ - $2\times$ faster than PBC for larger trees. Theoretically, it is $1.5 \sqrt[d]{2} \times$ faster.
 
 
 <p align="center">
