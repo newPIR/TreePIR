@@ -64,12 +64,12 @@ For example, with tree height $h = 10$,
       $ sudo apt-get install libstdc++-11-dev
       $ sudo docker run -it \
         -u root \
-        -v /home/quang/Desktop/TreePIR/Spiral:/tmp/Spiral \
-        -v /home/quang/Desktop/TreePIR/Spiral/Process_Workspace:/home/ubuntu/Process_Workspace \
+        -v /Path/To/TreePIR/Spiral:/tmp/Spiral \
+        -v /Path/To/TreePIR/Spiral/Process_Workspace:/home/ubuntu/Process_Workspace \
         --rm spiral_toolchain:latest \
         /bin/bash -c "cd /tmp/Spiral; exec bash"
       $ cd Evaluation
-      $ python3 evaluation.py
+      $ python3 evaluate.py
 
   For executing Spiral+PBC, you should open the evaluation.py and active line 23: "mode: typing.Final[Mode] = Mode.PBC". And in the file TreePIR/Spiral/Seperate/src/spiral.cpp, active line 1140.
 
