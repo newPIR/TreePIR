@@ -21,7 +21,7 @@ To benchmark TreePIR and PBC for large trees ($n = 2^{22},\ldots,2^{36})$, we us
       $ sudo apt update
       $ sudo apt upgrade
       $ sudo apt install default-jdk
-- ##### SEAL 4.0.0
+- #### SEAL 4.0.0
       $ sudo apt install build-essential cmake clang git g++ libssl-dev libgmp3-dev
       $ sudo apt update
       $ sudo apt upgrade
@@ -30,11 +30,11 @@ To benchmark TreePIR and PBC for large trees ($n = 2^{22},\ldots,2^{36})$, we us
       $ cmake -S . -B build
       $ cmake --build build
       $ sudo cmake --install build
-- ##### JSON
+- #### JSON
       $ git clone https://github.com/microsoft/vcpkg
       $ ./vcpkg/bootstrap-vcpkg.sh
       $ ./vcpkg install rapidjson
-- ##### Google gRPC
+- #### Google gRPC
       $ sudo apt install -y build-essential autoconf libtool pkg-config
       $ git clone --recurse-submodules -b v1.58.0 --depth 1 --shallow-submodules https://github.com/grpc/grpc
       $ cd grpc
@@ -52,7 +52,22 @@ To benchmark TreePIR and PBC for large trees ($n = 2^{22},\ldots,2^{36})$, we us
       $ git clone https://github.com/newPIR/TreePIR.git
       $ cd TreePIR/SealPIR-Orchestrator
       $ python3 orchestrator.py <tree height> /Path/To/TreePIR
-Example with tree hieght $h = 10$: python3 orchestrator.py 10 /Path/To/TreePIR.
+For example, with tree height $h = 10$, 
+      python3 orchestrator.py 10 /Path/To/TreePIR.
+
+---
+### Executing Spiral+PBC and Spiral+TreePIR
+
+- ##### Docker
+      $ cd Spiral
+      $ sudo docker build -t spiral_toolchain .
+      $ sudo apt-get install libstdc++-11-dev
+      $ sudo docker run -it \
+        -u root \
+        -v /home/quang/Desktop/TreePIR/Spiral:/tmp/Spiral \
+        -v /home/quang/Desktop/TreePIR/Spiral/Process_Workspace:/home/ubuntu/Process_Workspace \
+        --rm spiral_toolchain:latest \
+        /bin/bash -c "cd /tmp/Spiral; exec bash"
 
 
 
