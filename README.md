@@ -12,3 +12,50 @@ A Batch Private Information Retrieval (batch-PIR) scheme allows a client to retr
 Using only one core, our experiments ran within Ubuntu 22.04 LTS environments (Intel® Core™ i9-13900H and 32GiB of system memory). Each experiment was repeated ten times for various trees. The average values were then calculated. We fetched $2^{20}$ entries from Google's [Xenon2024](https://github.com/PIR-PIXR/Certificate-Transparency-Logs) for running end-to-end PIR system. Each entry comprised an entry number, timestamp, and certificate. Applying SHA-256 on the certificates, we constructed Merkle trees of $n$ leaves with $n$ ranging from $2^{10}$ to $2^{20}$. Consequently, each tree node occupied 32 bytes.
 
 To benchmark TreePIR and PBC for large trees ($n = 2^{22},\ldots,2^{36})$, we use random hashes to avoid excessive overheads.
+
+
+---
+## Installing Libraries
+
+- #### Javac
+      $ sudo apt update
+      $ sudo apt upgrade
+      $ sudo apt install default-jdk
+- ##### SEAL 4.0.0
+      $ sudo apt install build-essential cmake clang git g++ libssl-dev libgmp3-dev
+      $ sudo apt update
+      $ sudo apt upgrade
+      $ git clone https://github.com/cnquang/SEAL-4.0.0.git
+      $ cd SEAL-4.0.0
+      $ cmake -S . -B build
+      $ cmake --build build
+      $ sudo cmake --install build
+- ##### JSON
+      $ git clone https://github.com/microsoft/vcpkg
+      $ ./vcpkg/bootstrap-vcpkg.sh
+      $ ./vcpkg install rapidjson
+- ##### Google gRPC
+      $ sudo apt install -y build-essential autoconf libtool pkg-config
+      $ git clone --recurse-submodules -b v1.58.0 --depth 1 --shallow-submodules https://github.com/grpc/grpc
+      $ cd grpc
+      $ mkdir -p cmake/build
+      $ pushd cmake/build
+      $ cmake -DgRPC_INSTALL=ON \
+        -DgRPC_BUILD_TESTS=OFF \
+        ../..
+      $ make -j 4
+      $ sudo make install
+      $ popd
+
+---
+### Executing SealPIR+PBC and SealPIR+TreePIR
+      $ git clone https://github.com/newPIR/TreePIR.git
+      $ cd TreePIR/SealPIR-Orchestrator
+      $ python3 orchestrator.py <tree height> /Path/To/TreePIR
+Example with tree hieght $h = 10$: python3 orchestrator.py 10 /Path/To/TreePIR.
+
+
+
+
+
+      
