@@ -113,6 +113,17 @@ Table 1: A comparison of the *setup* time between TreePIR and PBC for various tr
 
 Table 2: A comparison of the *indexing* times of TreePIR and PBC. Despite ignoring the download time of its (large) index, PBC's indexing is still 19 - $160\times$ slower than TreePIR's indexing.
 
+| $h$ | 10 | 12 | 14 | 16 | 18 | 20 |
+|-----|----|----|----|----|----|----|
+| SealPIR+PBC (ms) | 21 | 24 | 28 | 31 | 37 | 40 |
+| **SealPIR+TreePIR** (ms) | 13 | 16 | 18 | 21 | 24 | 27 |
+| Spiral+PBC (ms) | 33 | 39 | 46 | 54 | 62 | 66 |
+| **Spiral+TreePIR** (ms) | 20 | 24 | 29 | 33 | 37 | 41 |
+| VBPIR+PBC (ms) | 5.1 | 5.1 | 7.0 | 7.0 | 7.3 | 7.5 |
+| **VBPIR+TreePIR** (ms) | 4.1 | 4.1 | 4.3 | 6.2 | 6.4 | 6.6 |
+
+Table 3: The client *query-generation* times of TreePIR and PBC when combined with SealPIR, Spiral, and VBPIR.
+
 
 <p align="center">
   <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779906-eb2ffdf5-a405-4989-9ee5-f0d9c51530b7.png"> <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779912-8aeb452f-e90f-4947-978c-4230d8fddf64.png">
