@@ -165,7 +165,7 @@ Figure 1: TreePIR's communication cost is about $1.5\times$ lower than PBC's as 
 ---
 ## REFERENCES
 
-[LM] R. W. Lai and G. Malavolta, “Subvector commitments with application to succinct arguments,” in Advances in Cryptology–CRYPTO 2019: 39th Annual International Cryptology Conference, Santa Barbara, CA, USA, August 18–22, 2019, Proceedings, Part I 39. Springer, 2019, pp. 530–560.
+[PBC](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8418648&casa_token=TDXMe3TP8FEAAAAA:pCRuD39ghBC0f6rGHpdxAv0MxCkcVdiOb7C2Q18ZbPXd0CMb0rsohDfzJuVAqJSXH5bgpOkh) Angel, S., Chen, H., Laine, K., & Setty, S. (2018, May). PIR with compressed queries and amortized query processing. In 2018 IEEE symposium on security and privacy (SP) (pp. 962-979). IEEE.
 
 [CKGS] B. Chor, E. Kushilevitz, O. Goldreich, and M. Sudan, “Private information retrieval,” Journal of the ACM (JACM), vol. 45, no. 6, pp. 965–981, 1998.
 
