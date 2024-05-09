@@ -159,7 +159,8 @@ Table 6: TreePIR's total server computation time is $1.5$-$2\times$ faster than 
 <p align="center">
   <img width="600" height="300" src="https://github.com/PIR-PIXR/Certificate-Transparency-Logs/assets/102839948/10a446cc-5344-4a36-aa2a-936fc9e99049">
 </p>
-<strong> Fig. 1.</strong> TreePIR's communication cost is about $1.5\times$ lower than PBC's as expected for most combinations (except VBPIR).
+
+Figure. 1.TreePIR's communication cost is about $1.5\times$ lower than PBC's as expected for most combinations (except VBPIR).
 
 ---
 ## REFERENCES
