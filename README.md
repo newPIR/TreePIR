@@ -93,12 +93,15 @@ To execute Spiral+TreePIR, open the evaluation.py and active line 22: "mode: typ
 ## Performance
 The performance of a batch-code-based batch-PIR depends on the number of sub-databases and their sizes, and on the performance of the underlying PIR scheme. Moreover, it also depends on the dimension $d$ that PIR sub-databases are represented, e.g., $d=2$ for SealPIR, $d=3$ for VBPIR, and $d=4$ for Spiral. Theoretically, as TreePIR uses $1.5\times$ fewer sub-databases of size $2\times$ smaller compared to PBC, theoretically, TreePIR uses $3\times$ less storage, with $\sqrt[d]{2}\times$ faster max server computation and client query-generation times, $1.5\sqrt[d]{2}\times$ faster total server computation time. The client answer-extraction times are similar for both as dummy responses are ignored in PBC. The theoretical gains were also reflected in the experiments.
 
-TreePIR has significantly faster setup and indexing thanks to its efficient coloring and indexing algorithms on trees. In particular, for trees with $2^{10}$-$2^{24}$ leaves, TreePIR's setup and indexing are $8$-$60\times$ and $19$-$160\times$ faster than PBC's, respectively. TreePIR still works well beyond that range, requiring $180$ seconds to setup a tree of $2^{30}$ leaves, and only $0.7$ milliseconds to index in a tree of $2^{36}$ leaves.
+TreePIR has significantly faster setup and indexing thanks to its efficient coloring and indexing algorithms on trees. In particular, for trees with $2^{10}$ - $2^{24}$ leaves, TreePIR's setup and indexing are $8$-$60\times$ and $19$-$160\times$ faster than PBC's, respectively. TreePIR still works well beyond that range, requiring $180$ seconds to setup a tree of $2^{30}$ leaves, and only $0.7$ milliseconds to index in a tree of $2^{36}$ leaves.
 
-<p align="center">
-  <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779606-f423e87c-9df9-4c7e-93fa-b71f1bf55bd5.png"> <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779651-d01f66d2-35cb-4e10-bd73-ced4136f858c.png">
-</p>
-<strong> Fig. 1.</strong> The comparison of the average server and client computation times regraded to three different LM-PIR cases (LM-CKGS, LM-WY, and LM-BE) where k = 2, t = 1, n = 2^10, and m is changing (2^0, 2^12, 2^14, 2^16). When m increases, the total LM-PIR computation time increases, but the LM computation time parts are constant. It means that the percentage of LMC-related computation time decreases significantly when the vertical database increases.
+| $h$ | 10 | 12 | 14 | 16 | 18 | 20 | 22 | 24 |
+|-----|----|----|----|----|----|----|----|----|
+| PBC (ms) | 3.4 | 8.9 | 53.1 | 406 | 2132 | 9259 | 37591 | 159814 |
+| **TreePIR** (ms) | 0.4 | 2.4 | 7.6 | 39.1 | 56.1 | 179 | 600 | 2700 |
+| $h$ | 26 |    |    | 28 |    | 29 |    | 30 |
+| **TreePIR** (sec) | 9.6 |    |    | 37.3 |    | 77.1 |    | 179.4 |
+
 
 <p align="center">
   <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779728-d474a1e3-6d0a-4ad2-83d4-5ab550d265fa.png"> <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779764-8e25f985-b584-4f24-9cab-def75f1c7efa.png">
