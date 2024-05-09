@@ -101,7 +101,7 @@ TreePIR has significantly faster setup and indexing thanks to its efficient colo
 | **TreePIR** (ms) | 0.4 | 2.4 | 7.6 | 39.1 | 56.1 | 179 | 600 | 2700 |
 | $h$ | 26 |    |    | 28 |    | 29 |    | 30 |
 | **TreePIR** (sec) | 9.6 |    |    | 37.3 |    | 77.1 |    | 179.4 |
-
+Table 1: A comparison of the *setup* time between TreePIR and PBC for various tree heights. TreePIR's setup is *8*-*$60\times$ faster.
 
 <p align="center">
   <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779728-d474a1e3-6d0a-4ad2-83d4-5ab550d265fa.png"> <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779764-8e25f985-b584-4f24-9cab-def75f1c7efa.png">
