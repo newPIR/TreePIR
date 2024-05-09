@@ -144,6 +144,17 @@ Table 4: The client *answer-extraction* times of TreePIR and PBC when combined w
 
 Table 5: Theoretically, TreePIR's max server computation time is $\sqrt[d]{2} \times$ faster than PBC. This is reflected correctly in the table with $d = 2$ for SealPIR and $d=4$ for Spiral.
 
+| $h$ | 10 | 12 | 14 | 16 | 18 | 20 |
+|-----|----|----|----|----|----|----|
+| SealPIR+PBC (ms) | 69 | 99 | 235 | 486 | 1185 | 2916 |
+| **SealPIR+TreePIR** (ms) | 47 | 55 | 104 | 233 | 531 | 1250 |
+| Spiral+PBC (ms) | 501 | 613 | 700 | 805 | 916 | 1151 |
+| **Spiral+TreePIR** (ms) | 309 | 373 | 429 | 507 | 561 | 663 |
+| VBPIR+PBC (ms) | 399 | 405 | 586 | 969 | 2357 | 7481 |
+| **VBPIR+TreePIR** (ms) | 396 | 397 | 415 | 588 | 1372 | 3871 |
+
+Table 6: TreePIR's total server computation time is $1.5$-$2\times$ faster than PBC for larger trees. Theoretically, it is $1.5 \sqrt[d]{2} \times$ faster.
+
 
 <p align="center">
   <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779906-eb2ffdf5-a405-4989-9ee5-f0d9c51530b7.png"> <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779912-8aeb452f-e90f-4947-978c-4230d8fddf64.png">
