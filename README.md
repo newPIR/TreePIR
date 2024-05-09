@@ -71,9 +71,9 @@ For example, with tree height $h = 10$,
       $ cd Evaluation
       $ python3 evaluate.py
 
-To execute Spiral+PBC, open the evaluation.py and active line 23: "mode: typing.Final[Mode] = Mode.PBC". In the file TreePIR/Spiral/Seperate/src/spiral.cpp, active line 1140,
+To execute Spiral+PBC, open the evaluation.py and active line 23: "mode: typing.Final[Mode] = Mode.PBC". In the file TreePIR/Spiral/Seperate/src/spiral.cpp, active line 1140.
 
-To execute Spiral+TreePIR, open the evaluation.py and active line 22: "mode: typing.Final[Mode] = Mode.COLOURING". In the file TreePIR/Spiral/Seperate/src/spiral.cpp, active line 1139,
+To execute Spiral+TreePIR, open the evaluation.py and active line 22: "mode: typing.Final[Mode] = Mode.COLOURING". In the file TreePIR/Spiral/Seperate/src/spiral.cpp, active line 1139.
 
 ---
 ### Executing VBPIR+PBC
@@ -102,7 +102,7 @@ TreePIR has significantly faster setup and indexing thanks to its efficient colo
 | $h$ | 26 |    |    | 28 |    | 29 |    | 30 |
 | **TreePIR** (sec) | 9.6 |    |    | 37.3 |    | 77.1 |    | 179.4 |
 
-Table 1: A comparison of the *setup* time between TreePIR and PBC for various tree heights. TreePIR's setup is 8 - $60\times$ faster.
+**Table 1:** A comparison of the *setup* time between TreePIR and PBC for various tree heights. TreePIR's setup is 8 - $60\times$ faster.
 
 | $h$ | 10 | 12 | 14 | 16 | 18 | 20 | 22 | 24 |
 |-----|----|----|----|----|----|----|----|----|
@@ -111,7 +111,7 @@ Table 1: A comparison of the *setup* time between TreePIR and PBC for various tr
 | $h$ | 26 | 28 | 30 | 32 | 34 | 36 |
 | **TreePIR** (ms) | 0.47 | 0.48 | 0.51 | 0.52 | 0.61 | 0.69 |
 
-Table 2: A comparison of the *indexing* times of TreePIR and PBC. Despite ignoring the download time of its (large) index, PBC's indexing is still 19 - $160\times$ slower than TreePIR's indexing.
+**Table 2:** A comparison of the *indexing* times of TreePIR and PBC. Despite ignoring the download time of its (large) index, PBC's indexing is still 19 - $160\times$ slower than TreePIR's indexing.
 
 | $h$ | 10 | 12 | 14 | 16 | 18 | 20 |
 |-----|----|----|----|----|----|----|
@@ -122,7 +122,7 @@ Table 2: A comparison of the *indexing* times of TreePIR and PBC. Despite ignori
 | VBPIR+PBC (ms) | 5.1 | 5.1 | 7.0 | 7.0 | 7.3 | 7.5 |
 | **VBPIR+TreePIR** (ms) | 4.1 | 4.1 | 4.3 | 6.2 | 6.4 | 6.6 |
 
-Table 3: The client *query-generation* times of TreePIR and PBC when combined with SealPIR, Spiral, and VBPIR.
+**Table 3:** The client *query-generation* times of TreePIR and PBC when combined with SealPIR, Spiral, and VBPIR.
 
 | $h$ | 10  | 12  | 14  | 16  | 18  | 20  |
 |-----|-----|-----|-----|-----|-----|-----|
@@ -133,7 +133,7 @@ Table 3: The client *query-generation* times of TreePIR and PBC when combined wi
 | VBPIR+PBC (ms) | 1.3 | 1.3 | 0.7 | 0.7 | 0.7 | 0.7 |
 | **VBPIR+TreePIR** (ms) | 1.3 | 1.3 | 1.3 | 0.7 | 0.7 | 0.7 |
 
-Table 4: The client *answer-extraction* times of TreePIR and PBC when combined with SealPIR, Spiral, and VBPIR are similar.
+**Table 4:** The client *answer-extraction* times of TreePIR and PBC when combined with SealPIR, Spiral, and VBPIR are similar.
 
 | $h$ | 10 | 12 | 14 | 16 | 18 | 20 |
 |-----|----|----|----|----|----|----|
@@ -142,7 +142,7 @@ Table 4: The client *answer-extraction* times of TreePIR and PBC when combined w
 | Spriral+PBC (ms) | 33 | 34 | 34 | 34 | 35 | 39 |
 | **Spiral+TreePIR** (ms) | 30 | 31 | 31 | 31 | 32 | 33 |
 
-Table 5: Theoretically, TreePIR's max server computation time is $\sqrt[d]{2} \times$ faster than PBC. This is reflected correctly in the table with $d = 2$ for SealPIR and $d=4$ for Spiral.
+**Table 5:** Theoretically, TreePIR's max server computation time is $\sqrt[d]{2} \times$ faster than PBC. This is reflected correctly in the table with $d = 2$ for SealPIR and $d=4$ for Spiral.
 
 | $h$ | 10 | 12 | 14 | 16 | 18 | 20 |
 |-----|----|----|----|----|----|----|
@@ -153,7 +153,7 @@ Table 5: Theoretically, TreePIR's max server computation time is $\sqrt[d]{2} \t
 | VBPIR+PBC (ms) | 399 | 405 | 586 | 969 | 2357 | 7481 |
 | **VBPIR+TreePIR** (ms) | 396 | 397 | 415 | 588 | 1372 | 3871 |
 
-Table 6: TreePIR's total server computation time is $1.5$ - $2\times$ faster than PBC for larger trees. Theoretically, it is $1.5 \sqrt[d]{2} \times$ faster.
+**Table 6:** TreePIR's total server computation time is $1.5$ - $2\times$ faster than PBC for larger trees. Theoretically, it is $1.5 \sqrt[d]{2} \times$ faster.
 
 
 <p align="center">
