@@ -59,7 +59,7 @@ For example, with tree height $h = 10$,
 ### Executing Spiral+PBC and Spiral+TreePIR
 
 - ##### Docker
-      $ cd Spiral
+      $ cd TreePIR/Spiral
       $ sudo docker build -t spiral_toolchain .
       $ sudo apt-get install libstdc++-11-dev
       $ sudo docker run -it \
@@ -77,14 +77,14 @@ To execute Spiral+TreePIR, open the evaluation.py and active line 22: "mode: typ
 
 ---
 ### Executing VBPIR+PBC
-      $ cd VBPIR_PBC
+      $ cd TreePIR/VBPIR_PBC
       $ cmake -S . -B build
       $ cmake --build build
       $ ./build/bin/vbpir_pbc
       
 ---
 ### Executing VBPIR+TreePIR
-      $ cd VBPIR_TreePIR
+      $ cd TreePIR/VBPIR_TreePIR
       $ cmake -S . -B build
       $ cmake --build build
       $ ./build/bin/vbpir_treepir
