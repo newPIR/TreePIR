@@ -124,6 +124,17 @@ Table 2: A comparison of the *indexing* times of TreePIR and PBC. Despite ignori
 
 Table 3: The client *query-generation* times of TreePIR and PBC when combined with SealPIR, Spiral, and VBPIR.
 
+| $h$ | 10  | 12  | 14  | 16  | 18  | 20  |
+|-----|-----|-----|-----|-----|-----|-----|
+| SealPIR+PBC (ms) | 12.4 | 14.9 | 17.3 | 19.4 | 22.4 | 24.6 |
+| **SealPIR+TreePIR** (ms) | 12.6 | 15.0 | 17.2 | 19.4 | 22.2 | 24.3 |
+| Spiral+PBC (ms) | 6.7 | 7.9 | 9.4 | 10.4 | 10.9 | 12.2 |
+| **Spiral+TreePIR** (ms) | 5.8 | 7.2 | 8.4 | 9.6 | 10.5 | 12.2 |
+| VBPIR+PBC (ms) | 1.3 | 1.3 | 0.7 | 0.7 | 0.7 | 0.7 |
+| **VBPIR+TreePIR** (ms) | 1.3 | 1.3 | 1.3 | 0.7 | 0.7 | 0.7 |
+
+Table 4: The client *answer-extraction* times of TreePIR and PBC when combined with SealPIR, Spiral, and VBPIR are similar.
+
 
 <p align="center">
   <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779906-eb2ffdf5-a405-4989-9ee5-f0d9c51530b7.png"> <img width="400" height="300" src="https://user-images.githubusercontent.com/87842051/230779912-8aeb452f-e90f-4947-978c-4230d8fddf64.png">
