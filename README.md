@@ -68,6 +68,12 @@ For example, with tree height $h = 10$,
         -v /home/quang/Desktop/TreePIR/Spiral/Process_Workspace:/home/ubuntu/Process_Workspace \
         --rm spiral_toolchain:latest \
         /bin/bash -c "cd /tmp/Spiral; exec bash"
+      $ cd Evaluation
+      $ python3 evaluation.py
+
+  For executing Spiral+PBC, you should open the evaluation.py and active line 23: "mode: typing.Final[Mode] = Mode.PBC". And in the file TreePIR/Spiral/Seperate/src/spiral.cpp, active line 1140.
+
+  For executing Spiral+TreePIR, you should open the evaluation.py and active line 22: "mode: typing.Final[Mode] = Mode.COLOURING". And in the file TreePIR/Spiral/Seperate/src/spiral.cpp, active line 1139.
 
 
 
