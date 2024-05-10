@@ -21,6 +21,10 @@ To benchmark TreePIR and PBC for large trees ($n = 2^{22},\ldots,2^{36})$, we us
       $ sudo apt update
       $ sudo apt upgrade
       $ sudo apt install default-jdk
+- #### Python3
+      $ sudo apt update
+      $ sudo apt upgrade
+      $ sudo apt install python3 
 - #### SEAL 4.0.0
       $ sudo apt install build-essential cmake clang git g++ libssl-dev libgmp3-dev
       $ sudo apt update
