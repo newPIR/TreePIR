@@ -15,7 +15,7 @@ To benchmark TreePIR and PBC for large trees ($n = 2^{22},\ldots,2^{36})$, we us
 
 
 ---
-## Installing Libraries
+### Installing Libraries
 
 - #### Javac
       $ sudo apt update
