@@ -9,10 +9,8 @@ A Batch Private Information Retrieval (batch-PIR) scheme allows a client to retr
 
 ---
 ## Experimental setup
-Using only one core, our experiments ran within Ubuntu 22.04 LTS environments (Intel® Core™ i9-13900H and 32GiB of system memory). Each experiment was repeated ten times for various trees. The average values were then calculated. We fetched $2^{20}$ entries from Google's [Xenon2024](https://github.com/PIR-PIXR/Certificate-Transparency-Logs) for running end-to-end PIR system. Each entry comprised an entry number, timestamp, and certificate. Applying SHA-256 on the certificates, we constructed Merkle trees of $n$ leaves with $n$ ranging from $2^{10}$ to $2^{20}$. Consequently, each tree node occupied 32 bytes.
-
-To benchmark TreePIR and PBC for large trees ($n = 2^{22},\ldots,2^{36})$, we use random hashes to avoid excessive overheads.
-
+We ran our experiments on a laptop (Intel® Core™ i9-13900H and 32GiB of system memory) in the Ubuntu 22.04 LTS environment. For each tree size, we ran the batch-PIR protocols for 10 random Merkle proofs and recorded the averages. 
+To build Merkle trees of $2^{10}$-$2^{20}$ leaves, we fetched $2^{20}$ entries from Google's [Xenon2024](https://github.com/PIR-PIXR/Certificate-Transparency-Logs), each of which comprises of an entry number, a timestamp, and a certificate, and applied SHA-256 on the certificates to produce tree leaves. Consequently, each tree node has size 32 bytes. To evaluate TreePIR's performance for larger trees ($n = 2^{22},\ldots,2^{36})$, we use random hashes to avoid excessive hashing overheads. We did not consider PBC beyond $h = 24$ as its index became too large. We used the existing C++ implementations of [PBC](https://github.com/mhmughees/vectorized_batchpir) by Mughees-Ren (after fixing some minor errors), [Spiral](https://github.com/menonsamir/spiral), and [VBPIR](https://github.com/mhmughees/vectorized_batchpir). Note that PIRANA code is not available. Hence, we can only evaluate TreePIR+PIRANA theoretically. 
 
 ---
 ### Installing Libraries
