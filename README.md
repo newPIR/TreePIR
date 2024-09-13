@@ -173,4 +173,4 @@ TreePIR has significantly faster setup and indexing thanks to its efficient colo
 
 [[VBPIR](https://doi.ieeecomputersociety.org/10.1109/SP46215.2023.10179329)] Mughees, M. H., & Ren, L. (2023, May). Vectorized batch private information retrieval. In 2023 IEEE Symposium on Security and Privacy (SP) (pp. 437-452). [GitHub](https://github.com/mhmughees/vectorized_batchpir).
 
-[[PIRANA](https://doi.ieeecomputersociety.org/10.1109/SP54263.2024.00039)] J. Liu, J. Li, D. Wu and K. Ren, (2024), PIRANA: Faster Multi-query PIR via Constant-weight Codes, in 2024 IEEE Symposium on Security and Privacy (SP), (pp. 43-43).
+[[PIRANA](https://doi.ieeecomputersociety.org/10.1109/SP54263.2024.00039)] J. Liu, J. Li, D. Wu and K. Ren, (2024), PIRANA: Faster Multi-query PIR via Constant-weight Codes, in 2024 IEEE Symposium on Security and Privacy (SP), (pp. 43-43). [GitHub](https://github.com/zju-abclab/PIRANA).
