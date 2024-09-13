@@ -60,7 +60,7 @@ int batchpir_main(int argc, char* argv[])
     std::vector<size_t> communication_query_list;
     std::vector<size_t> communication_response_list;
 
-    std::string filePath = "/home/quang/Desktop/PIR-CSA/VBPIR_PBC/list_TXs_" + std::to_string(tree_height) + "_" + std::to_string(2) + ".txt";
+    std::string filePath = "/home/quang/Desktop/TreePIR/VBPIR_PBC/list_TXs_" + std::to_string(tree_height) + "_" + std::to_string(2) + ".txt";
     std::vector<long> randIndices;
 
     std::ifstream file(filePath);
