@@ -150,7 +150,7 @@ TreePIR has significantly faster setup and indexing thanks to its efficient colo
 | Spriral+PBC (ms) | 33 | 34 | 34 | 34 | 35 | 39 |
 | **Spiral+TreePIR** (ms) | 30 | 31 | 31 | 31 | 32 | 33 |
 
-**Table 6:** TreePIR's total server computation time is $1.5$ - $2\times$ faster than PBC for larger trees. Theoretically, it is $1.5 \sqrt[d]{2} \times$ faster.
+**Table 6:** TreePIR's total server computation time is $1.5$ - $3\times$ faster than PBC for larger trees. Theoretically, it is $1.5 \sqrt[d]{2} \times$ faster.
 
 | $h$ | 10 | 12 | 14 | 16 | 18 | 20 |
 |-----|----|----|----|----|----|----|
