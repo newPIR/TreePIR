@@ -5,12 +5,12 @@
 # TreePIR: Efficient Private Retrieval of Merkle Proofs via Tree Colorings with Fast Indexing and Zero Storage Overhead
 
 ## Abstract
-A Batch Private Information Retrieval (batch-PIR) scheme allows a client to retrieve multiple data items from a database without revealing them to the storage server(s). Most existing approaches for batch-PIR are based on batch codes, in particular, probabilistic batch codes (PBC) ([Angel et al. IEEE S&P'18](https://doi.ieeecomputersociety.org/10.1109/SP.2018.00062)), which incur large storage overheads. In this work, we show that *zero* storage overhead is achievable for tree-shaped databases. In particular, we develop *TreePIR*, a novel approach tailored made for private retrieval of the set of nodes along an arbitrary *root-to-leaf path* in a Merkle tree with no storage redundancy. This type of trees has been widely implemented in many real-world systems such as Amazon DynamoDB, Google's Certificate Transparency, and blockchains. Tree nodes along a root-to-leaf path forms the well-known *Merkle proof*. TreePIR, which employs a novel tree coloring, outperforms PBC, a fundamental component in state-of-the-art batch-PIR schemes ([Angel et al. IEEE S&P'18](https://doi.ieeecomputersociety.org/10.1109/SP.2018.00062), [Mughees-Ren IEEE S&P'23](https://doi.ieeecomputersociety.org/10.1109/SP46215.2023.10179329), [Liu et al. IEEE S&P'24](https://doi.ieeecomputersociety.org/10.1109/SP54263.2024.00039)), in all metrics, achieving $3\times$ lower total storage and $1.5 - 2\times$ lower computation and communication costs. Most notably, TreePIR has $8$-$160\times$ lower setup time and its *polylog*-complexity indexing algorithm is $19 - 160\times$ faster than PBC for trees of $2^{10} - 2^{24}$ leaves. You can find a Full Version of the paper [here](https://github.com/newPIR/TreePIR/blob/main/TreePIR_Full_Version.pdf).
+A Batch Private Information Retrieval (batch-PIR) scheme allows a client to retrieve multiple data items from a database without revealing them to the storage server(s). Most existing approaches for batch-PIR are based on batch codes, in particular, probabilistic batch codes (PBC) ([Angel et al. IEEE S&P'18](https://doi.ieeecomputersociety.org/10.1109/SP.2018.00062)), which incur large storage overheads. In this work, we show that *zero* storage overhead is achievable for tree-shaped databases. In particular, we develop *TreePIR*, a novel approach tailored made for private retrieval of the set of nodes along an arbitrary *root-to-leaf path* in a Merkle tree with no storage redundancy. This type of trees has been widely implemented in many real-world systems such as Amazon DynamoDB, Google's Certificate Transparency, and blockchains. Tree nodes along a root-to-leaf path forms the well-known *Merkle proof*. TreePIR, which employs a novel tree coloring, outperforms PBC, a fundamental component in state-of-the-art batch-PIR schemes ([Angel et al. IEEE S&P'18](https://doi.ieeecomputersociety.org/10.1109/SP.2018.00062), [Mughees-Ren IEEE S&P'23](https://doi.ieeecomputersociety.org/10.1109/SP46215.2023.10179329), [Liu et al. IEEE S&P'24](https://doi.ieeecomputersociety.org/10.1109/SP54263.2024.00039)), in all metrics, achieving $3\times$ lower total storage and $1.5 - 3\times$ lower computation and communication costs. Most notably, TreePIR has $8$-$160\times$ lower setup time and its *polylog*-complexity indexing algorithm is $19 - 160\times$ faster than PBC for trees of $2^{10} - 2^{24}$ leaves. You can find a Full Version of the paper [here](https://github.com/newPIR/TreePIR/blob/main/TreePIR_Full_Version.pdf).
 
 ---
 ## Experimental setup
 We ran our experiments on a laptop (Intel® Core™ i9-13900H and 32GiB of system memory) in the Ubuntu 22.04 LTS environment. For each tree size, we ran the batch-PIR protocols for 10 random Merkle proofs and recorded the averages. 
-To build Merkle trees of $2^{10} - 2^{20}$ leaves, we fetched $2^{20}$ entries from Google's [Xenon2024](https://github.com/PIR-PIXR/Certificate-Transparency-Logs), each of which comprises of an entry number, a timestamp, and a certificate, and applied SHA-256 on the certificates to produce tree leaves. Consequently, each tree node has size 32 bytes. To evaluate TreePIR's performance for larger trees ($n = 2^{22},\ldots,2^{36})$, we use random hashes to avoid excessive hashing overheads. We did not consider PBC beyond $h = 24$ as its index became too large. We used the existing C++ implementations of [PBC](https://github.com/newPIR/TreePIR/tree/main/PBC) by Mughees-Ren (after fixing some minor errors), [Spiral](https://github.com/menonsamir/spiral), and [VBPIR](https://github.com/mhmughees/vectorized_batchpir). Note that PIRANA code is not available. Hence, we can only evaluate TreePIR+PIRANA theoretically. 
+To build Merkle trees of $2^{10} - 2^{20}$ leaves, we fetched $2^{20}$ entries from Google's [Xenon2024](https://github.com/PIR-PIXR/Certificate-Transparency-Logs), each of which comprises of an entry number, a timestamp, and a certificate, and applied SHA-256 on the certificates to produce tree leaves. Consequently, each tree node has size $32$ bytes. To evaluate TreePIR's performance for larger trees ($n = 2^{22},\ldots,2^{36})$, we use random hashes to avoid excessive hashing overheads. We did not consider PBC beyond $h = 24$ as its index became too large. We used the existing C++ implementations of [PBC](https://github.com/newPIR/TreePIR/tree/main/PBC) by Mughees-Ren (after fixing some minor errors), [Spiral](https://github.com/menonsamir/spiral), [VBPIR](https://github.com/mhmughees/vectorized_batchpir), and [PIRANA](https://github.com/zju-abclab/PIRANA).
 
 ---
 ### Installing Libraries
@@ -93,9 +93,11 @@ To execute Spiral+TreePIR, open the evaluation.py and active line 22: "mode: typ
 
 ---
 ## Performance
-The performance of a batch-code-based batch-PIR depends on the number of sub-databases and their sizes, and on the performance of the underlying PIR scheme. Moreover, it also depends on the dimension $d$ that PIR sub-databases are represented, e.g., $d=2$ for SealPIR, $d=2, 3$ for VBPIR, and $d=4$ for Spiral. Theoretically, as TreePIR uses $1.5\times$ fewer sub-databases of size $2\times$ smaller compared to PBC, theoretically, TreePIR uses $3\times$ less storage, with $\sqrt[d]{2}\times$ faster max server computation, $1.5\sqrt[d]{2}\times$ faster total server computation, and $1.5 \times$ faster client query-generation time (except for VBPIR, the speedup for client query-generation time is $\sqrt[d]{2}\times$). The client answer-extraction times are similar for both as dummy responses are ignored in PBC. These theoretical gains were also reflected in the experiments.
+The performance of a batch-code-based batch-PIR depends on the number of sub-databases and their sizes, and on the performance of the underlying PIR scheme. Moreover, it also depends on the dimension $d$ that PIR sub-databases are represented, e.g., $d=1$ for PIRANA, $d=2$ for SealPIR, $d=2, 3$ for VBPIR, and $d=4$ for Spiral. Theoretically, as TreePIR uses $1.5\times$ fewer sub-databases of size $2\times$ smaller compared to PBC, theoretically, TreePIR uses $3\times$ less storage, with $\sqrt[d]{2}\times$ faster max server computation, $1.5\sqrt[d]{2}\times$ faster total server computation, and $1.5 \times$ faster client query-generation time (except for VBPIR and PIRANA, the speedup for client query-generation time is $\sqrt[d]{2}\times$ and $\sqrt[k]{3}\times$, respectively). The client answer-extraction times are similar for both as dummy responses are ignored in PBC. These theoretical gains were also reflected in the experiments.
 
 TreePIR has significantly faster setup and indexing thanks to its efficient coloring and indexing algorithms on trees. In particular, for trees with $2^{10} - 2^{24}$ leaves, TreePIR's setup and indexing are $8$-$60\times$ and $19 - 160\times$ faster than PBC's, respectively. TreePIR still works well beyond that range, requiring $180$ seconds to setup a tree of $2^{30}$ leaves, and only $0.7$ milliseconds to index in a tree of $2^{36}$ leaves.
+
+**Table 1:** A comparison of the *setup* time between TreePIR and PBC for various tree heights. TreePIR's setup is $8 - 60\times$ faster for trees of $2^{10} - 2^{24}$ leaves.
 
 | $h$ | 10 | 12 | 14 | 16 | 18 | 20 | 22 | 24 |
 |-----|----|----|----|----|----|----|----|----|
@@ -104,16 +106,16 @@ TreePIR has significantly faster setup and indexing thanks to its efficient colo
 | $h$ | 26 |    |    | 28 |    | 29 |    | 30 |
 | **TreePIR** (sec) | 9.6 |    |    | 37.3 |    | 77.1 |    | 179.4 |
 
-**Table 1:** A comparison of the *setup* time between TreePIR and PBC for various tree heights. TreePIR's setup is $8 - 60\times$ faster for trees of $2^{10} - 2^{24}$ leaves.
+**Table 2:** A comparison of the *indexing* times of TreePIR and PBC. Despite ignoring the download time of its (large) index, PBC's indexing is still 19 - $160\times$ slower than TreePIR's indexing.
 
 | $h$ | 10 | 12 | 14 | 16 | 18 | 20 | 22 | 24 |
 |-----|----|----|----|----|----|----|----|----|
 | Indexing PBC (ms) | 4 | 4 | 4 | 4 | 5 | 11 | 22 | 74 |
 | **TreePIR** (ms) | 0.21 | 0.24 | 0.25 | 0.32 | 0.34 | 0.38 | 0.41 | 0.46 |
-| $h$ | 26 | 28 | 30 | 32 | 34 | 36 |
-| **TreePIR** (ms) | 0.47 | 0.48 | 0.51 | 0.52 | 0.61 | 0.69 |
+| $h$ | 26 | 28 |  | 30 | 32 | | 34 | 36 |
+| **TreePIR** (ms) | 0.47 | 0.48 |  | 0.51 | 0.52 | | 0.61 | 0.69 |
 
-**Table 2:** A comparison of the *indexing* times of TreePIR and PBC. Despite ignoring the download time of its (large) index, PBC's indexing is still 19 - $160\times$ slower than TreePIR's indexing.
+**Table 3:** The client *query-generation* times of TreePIR and PBC when combined with SealPIR, Spiral, VBPIR, and PIRANA.
 
 | $h$ | 10 | 12 | 14 | 16 | 18 | 20 |
 |-----|----|----|----|----|----|----|
@@ -123,8 +125,10 @@ TreePIR has significantly faster setup and indexing thanks to its efficient colo
 | **Spiral+TreePIR** (ms) | 20 | 24 | 29 | 33 | 37 | 41 |
 | VBPIR+PBC (ms) | 5.1 | 5.1 | 7.0 | 7.0 | 7.3 | 7.5 |
 | **VBPIR+TreePIR** (ms) | 4.1 | 4.1 | 4.3 | 6.2 | 6.4 | 6.6 |
+| PIRANA+PBC (ms) | 4.1 | 5.6 | 8.6 | 14 | 24 | 45 |
+| **PIRANA+TreePIR** (ms) | 3.3 | 3.9 | 5.6 | 8 | 15 | 28 |
 
-**Table 3:** The client *query-generation* times of TreePIR and PBC when combined with SealPIR, Spiral, and VBPIR.
+**Table 4:** The client *answer-extraction* times of TreePIR and PBC when combined with SealPIR, Spiral, VBPIR, and PIRANA are similar.
 
 | $h$ | 10  | 12  | 14  | 16  | 18  | 20  |
 |-----|-----|-----|-----|-----|-----|-----|
@@ -134,8 +138,10 @@ TreePIR has significantly faster setup and indexing thanks to its efficient colo
 | **Spiral+TreePIR** (ms) | 5.8 | 7.2 | 8.4 | 9.6 | 10.5 | 12.2 |
 | VBPIR+PBC (ms) | 1.3 | 1.3 | 0.7 | 0.7 | 0.7 | 0.7 |
 | **VBPIR+TreePIR** (ms) | 1.3 | 1.3 | 1.3 | 0.7 | 0.7 | 0.7 |
+| PIRANA+PBC (ms) | 6.1 | 6.1 | 6.1 | 6.1 | 6.1 | 6.1 |
+| **PIRANA+TreePIR** (ms) | 6.1 | 6.1 | 6.1 | 6.1 | 6.1 | 6.1 |
 
-**Table 4:** The client *answer-extraction* times of TreePIR and PBC when combined with SealPIR, Spiral, and VBPIR are similar.
+**Table 5:** Theoretically, TreePIR's max server computation time is $\sqrt[d]{2} \times$ faster than PBC. This is reflected correctly in the table with $d = 2$ for SealPIR and $d=4$ for Spiral.
 
 | $h$ | 10 | 12 | 14 | 16 | 18 | 20 |
 |-----|----|----|----|----|----|----|
@@ -144,7 +150,7 @@ TreePIR has significantly faster setup and indexing thanks to its efficient colo
 | Spriral+PBC (ms) | 33 | 34 | 34 | 34 | 35 | 39 |
 | **Spiral+TreePIR** (ms) | 30 | 31 | 31 | 31 | 32 | 33 |
 
-**Table 5:** Theoretically, TreePIR's max server computation time is $\sqrt[d]{2} \times$ faster than PBC. This is reflected correctly in the table with $d = 2$ for SealPIR and $d=4$ for Spiral.
+**Table 6:** TreePIR's total server computation time is $1.5$ - $2\times$ faster than PBC for larger trees. Theoretically, it is $1.5 \sqrt[d]{2} \times$ faster.
 
 | $h$ | 10 | 12 | 14 | 16 | 18 | 20 |
 |-----|----|----|----|----|----|----|
@@ -154,15 +160,19 @@ TreePIR has significantly faster setup and indexing thanks to its efficient colo
 | **Spiral+TreePIR** (ms) | 309 | 373 | 429 | 507 | 561 | 663 |
 | VBPIR+PBC (ms) | 399 | 405 | 586 | 969 | 2357 | 7481 |
 | **VBPIR+TreePIR** (ms) | 396 | 397 | 415 | 588 | 1372 | 3871 |
-
-**Table 6:** TreePIR's total server computation time is $1.5$ - $2\times$ faster than PBC for larger trees. Theoretically, it is $1.5 \sqrt[d]{2} \times$ faster.
+| PIRANA+PBC (ms) | 46 | 76 | 189 | 570 | 1851 | 6796 |
+| **PIRANA+TreePIR** (ms) | 26 | 42 | 91 | 218 | 696 | 2377 |
 
 
 <p align="center">
-  <img width="600" height="300" src="https://github.com/csa2022/Color-Spliting-Algorithm-CSA/assets/102839948/e388aac3-b898-439a-8fdb-72478bd79c0d">
+  <img width="600" height="300" src="https://github.com/user-attachments/assets/9dec3668-cba6-4cb2-a22b-ed057541f34f">
 </p>
 
 **Figure 1:** TreePIR's communication cost is about $1.5\times$ lower than PBC's as expected for most combinations (except VBPIR).
+
+---
+## ACKNOWLEDGMENTS 
+This work was supported by the Australian Research Council through the Discovery Project under Grant DP200100731.
 
 ---
 ## REFERENCES
