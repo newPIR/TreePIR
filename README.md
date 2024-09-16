@@ -165,7 +165,7 @@ TreePIR has significantly faster setup and indexing thanks to its efficient colo
 
 
 <p align="center">
-  <img width="600" height="300" src="https://github.com/user-attachments/assets/9dec3668-cba6-4cb2-a22b-ed057541f34f">
+  <img width="600" height="350" src="https://github.com/user-attachments/assets/9dec3668-cba6-4cb2-a22b-ed057541f34f">
 </p>
 
 **Figure 1:** TreePIR's communication cost is about $1.5\times$ lower than PBC's as expected for most combinations (except VBPIR).
