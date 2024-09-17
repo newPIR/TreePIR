@@ -16,7 +16,7 @@ To build Merkle trees of $2^{10} - 2^{20}$ leaves, we fetched $2^{20}$ entries f
 ### Dataset
 Download the dataset from [Google Drive](https://drive.google.com/file/d/1VzdnIZK5nXA-kihbjMM_KNTrlwgzWJYs/view?usp=sharing) and overwrite the downloaded file to CSA/xenon2024/xenon2024_log_entries. The new file has a size of around 2GB.
 
-Or you can download Certificate Transparency logs following our [Github](https://github.com/PIR-PIXR/Certificate-Transparency-Logs).
+You can also download Certificate Transparency logs from our [Github](https://github.com/PIR-PIXR/Certificate-Transparency-Logs).
 
 ---
 ### Installing Libraries
