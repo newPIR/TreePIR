@@ -13,6 +13,12 @@ We ran our experiments on a laptop (Intel® Core™ i9-13900H and 32GiB of syste
 To build Merkle trees of $2^{10} - 2^{20}$ leaves, we fetched $2^{20}$ entries from Google's [Xenon2024](https://github.com/PIR-PIXR/Certificate-Transparency-Logs), each of which comprises of an entry number, a timestamp, and a certificate, and applied SHA-256 on the certificates to produce tree leaves. Consequently, each tree node has size $32$ bytes. To evaluate TreePIR's performance for larger trees ($n = 2^{22},\ldots,2^{36})$, we use random hashes to avoid excessive hashing overheads. We did not consider PBC beyond $h = 24$ as its index became too large. We used the existing C++ implementations of [PBC](https://github.com/newPIR/TreePIR/tree/main/PBC) by Mughees-Ren (after fixing some minor errors), [Spiral](https://github.com/menonsamir/spiral), [VBPIR](https://github.com/mhmughees/vectorized_batchpir), and [PIRANA](https://github.com/zju-abclab/PIRANA).
 
 ---
+### Dataset
+Download the dataset from [Google Drive](https://drive.google.com/file/d/1VzdnIZK5nXA-kihbjMM_KNTrlwgzWJYs/view?usp=sharing) and overwrite the downloaded file to CSA/xenon2024/xenon2024_log_entries. The new file has a size of around 2GB.
+
+Or you can download Certificate Transparency logs following our [Github](https://github.com/PIR-PIXR/Certificate-Transparency-Logs).
+
+---
 ### Installing Libraries
 
 - #### Javac
